@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="2.5" client="site" method="upgrade">
+	<name>mod_bfbiblereadingplan</name>
+	<version>1.0.0</version>
+	<author>Jonathan Brain</author>
+	<authorEmail>brainforge.uk@btinternet.com</authorEmail>
+	<authorUrl>https://www.brainforge.co.uk</authorUrl>
+	<creationDate>January 2021</creationDate>
+	<copyright>Copyright 2021 Jonathan Brain. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<description>MOD_BFBIBLEREADINGPLAN_XML_DESCRIPTION</description>
+
+	<files>
+		<filename module="mod_bfbiblereadingplan">mod_bfbiblereadingplan.php</filename>
+		<folder>language</folder>
+		<folder>sql</folder>
+		<folder>tmpl</folder>
+	</files>
+
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+			<file driver="mysql" charset="utf8">sql/readingplan.mysql.utf8.sql</file>
+		</sql>
+	</install>
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
+
+	<config>
+		<fields name="params">
+			<fieldset name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					/>
+
+				<field
+					name="cache"
+					type="list"
+					default="0"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					>
+					<option
+						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+
+	<updateservers>
+		<server type="extension" priority="1" name="MOD_BFBIBLEREADINGPLAN">
+			https://brainforge.co.uk/component/bfupdater?element=mod_bfbiblereadingplan.xml
+		</server>
+	</updateservers>
+</extension>
