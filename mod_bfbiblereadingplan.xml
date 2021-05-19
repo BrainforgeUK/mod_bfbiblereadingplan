@@ -12,6 +12,7 @@
 
 	<files>
 		<filename module="mod_bfbiblereadingplan">mod_bfbiblereadingplan.php</filename>
+		<folder>helpers</folder>
 		<folder>language</folder>
 		<folder>sql</folder>
 		<folder>tmpl</folder>
